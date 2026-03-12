@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зеленый дом</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Шрифт Alegreya Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" href="favicon.png" type="images/png">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+
+<!-- ===== ШАПКА ===== -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+        <!-- Логотип на белом фоне -->
+        <div class="logo-container">
+            <img src="images/logo-house.png" alt="Зеленый дом" height="35">
+            <span class="brand-text">Зеленый дом</span>
+        </div>
+        
+        <!-- Кнопка для мобильного меню -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Меню навигации -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-custom active" href="index14.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-custom" href="catalog.html">Каталог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-custom" href="form.html">Заказ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-custom" href="product.html">Товар</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== БАННЕР ===== -->
+<div class="hero-section">
+    <div class="container">
+        <h1 class="hero-title">Добавь зелени в свою жизнь</h1>
+        <p class="hero-text">
+            Сделайте пространство вокруг себя мягче и добрее. 
+            Растения для уютных вечеров с пледом и книгами.
+        </p>
+        <a href="catalog.html" class="btn-hero">Смотреть каталог</a>
+    </div>
+</div>
+
+<!-- ===== КАТЕГОРИИ РАСТЕНИЙ ===== -->
+<div class="container mt-5">
+    
+    <!-- Используем сетку Bootstrap: 4 колонки на десктопе, 2 на мобильных -->
+    <div class="row g-4">
+        <!-- Карточка 1: Цветущие (картинка по центру) -->
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="plant-card">
+                <div class="plant-img-container text-center">
+                    <img src="images/flower1.png" alt="Цветущие" class="plant-img-center">
+                </div>
+                <div class="card-body">
+                    <h5 class="plant-title">Цветущие</h5>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карточка 2: Пальмы -->
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="plant-card">
+                <div class="plant-img-container text-center">
+                    <img src="images/palmi.png" class="plant-img-center" alt="Пальмы">
+                </div>
+                <div class="card-body">
+                    <h5 class="plant-title">Пальмы</h5>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карточка 3: Цитрусовые -->
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="plant-card">
+                <div class="plant-img-container text-center">
+                    <img src="images/citrus.png" class="plant-img-center" alt="Цитрусовые">
+                </div>
+                <div class="card-body">
+                    <h5 class="plant-title">Цитрусовые</h5>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карточка 4: Кактусы -->
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="plant-card">
+                <div class="plant-img-container text-center">
+                    <img src="images/cactus.png" class="plant-img-center" alt="Кактусы">
+                </div>
+                <div class="card-body">
+                    <h5 class="plant-title">Кактусы</h5>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карточка 5: Лиственные -->
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="plant-card">
+                <div class="plant-img-container text-center">
+                    <img src="images/listvennie.png" class="plant-img-center" alt="Лиственные">
+                </div>
+                <div class="card-body">
+                    <h5 class="plant-title">Лиственные</h5>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карточка 6: Драцена -->
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="plant-card">
+                <div class="plant-img-container text-center">
+                    <img src="images/dracaena.png" class="plant-img-center" alt="Драцена">
+                </div>
+                <div class="card-body">
+                    <h5 class="plant-title">Драцена</h5>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карточка 7: Фикусы -->
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="plant-card">
+                <div class="plant-img-container text-center">
+                    <img src="images/ficus.png" class="plant-img-center" alt="Фикусы">
+                </div>
+                <div class="card-body">
+                    <h5 class="plant-title">Фикусы</h5>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карточка 8: Орхидеи -->
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="plant-card">
+                <div class="plant-img-container text-center">
+                    <img src="images/orchidea.png" class="plant-img-center" alt="Орхидеи">
+                </div>
+                <div class="card-body">
+                    <h5 class="plant-title">Орхидеи</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== ПОДВАЛ (компактный) ===== -->
+<footer>
+    <div class="container">
+        <span><i class="bi bi-clock me-1"></i>Обработка заказов: 9:00-20:00</span>
+        <span><i class="bi bi-envelope me-1"></i>greenhome@mail.ru</span>
+        <span><i class="bi bi-telephone me-1"></i>+7 (929) 796-06-97</span>
+    </div>
+</footer>
+>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Твой JS -->
+<script src="js/script.js"></script> 
+</body>
+</html>

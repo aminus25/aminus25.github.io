@@ -1,0 +1,520 @@
+/* ======================================== */
+/* ===== ОСНОВНЫЕ НАСТРОЙКИ ДЛЯ ВСЕХ СТРАНИЦ ===== */
+/* ======================================== */
+:root {
+    --main-green: #74A322;    /* основной зеленый цвет (шапка, подвал, кнопки) */
+    --light-bg: #fafafa;       /* фон страницы (светло-серый) */
+    --text-dark: #333333;      /* цвет основного текста (темно-серый) */
+}
+
+* {
+    margin: 0;                  /* обнуляем отступы у всех элементов */
+    padding: 0;                 /* обнуляем внутренние отступы */
+    box-sizing: border-box;     /* чтобы padding не увеличивал ширину */
+}
+
+body {
+    font-family: 'Alegreya Sans', sans-serif;  /* основной шрифт */
+    color: var(--text-dark);                    /* цвет текста */
+    background-color: var(--light-bg);          /* фон страницы */
+    line-height: 1.5;                            /* межстрочный интервал */
+}
+
+html, body {
+    height: 100%;               /* высота на весь экран */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;               /* flexbox для прижатия подвала */
+    flex-direction: column;      /* колонка: шапка, контент, подвал */
+    min-height: 100vh;           /* минимальная высота = весь экран */
+}
+
+main {
+    flex: 1;                     /* занимает всё оставшееся место */
+}
+
+.container {
+    max-width: 1440px;           /* максимальная ширина контента */
+    margin: 0 auto;              /* центрирование по горизонтали */
+    padding: 0 15px;             /* отступы по бокам */
+}
+
+/* ======================================== */
+/* ===== СТИЛИ ДЛЯ ШАПКИ (ВСЕ СТРАНИЦЫ) ===== */
+/* ======================================== */
+
+/* Контейнер для логотипа (белый фон) */
+.logo-container {
+    background-color: white;
+    padding: 5px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Картинка-домик в логотипе */
+.logo-container img {
+    height: 35px;
+    width: auto;
+}
+
+/* Текст логотипа "Зеленый дом" */
+.brand-text {
+    color: var(--main-green);
+    font-weight: 700;
+    font-size: 24px;
+}
+
+/* Зеленая полоса шапки */
+.navbar-custom {
+    background-color: var(--main-green) !important;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+/* Стили для бренда (если используется) */
+.navbar-brand {
+    color: white !important;
+    font-weight: 400;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Меню навигации */
+.navbar-nav {
+    width: 100%;
+    justify-content: center;
+    gap: 10rem;
+}
+
+/* Ссылки в меню */
+.nav-link-custom {
+    color: white !important;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.3rem 0 !important;
+    transition: opacity 0.2s;
+}
+
+.nav-link-custom:hover {
+    opacity: 0.9;
+}
+
+/* Активная страница (подчеркивание) */
+.nav-link-custom.active {
+    font-weight: 700;
+    border-bottom: 3px solid white;
+}
+
+/* ======================================== */
+/* ===== СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ (index.html) ===== */
+/* ======================================== */
+
+/* Баннер с изображением */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 294px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    color: white;
+}
+
+.hero-section .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 30px;
+}
+
+/* Заголовок в баннере */
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    margin-bottom: 0.3rem;
+}
+
+/* Текст в баннере */
+.hero-text {
+    font-size: 1.1rem;
+    max-width: 100%;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    margin-bottom: 0.5rem;
+}
+
+/* Кнопка в баннере */
+.btn-hero {
+    background-color: var(--main-green);
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+    border: 2px solid white;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+}
+
+.btn-hero:hover {
+    background-color: white;
+    color: var(--main-green);
+}
+
+/* Заголовки разделов на главной */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--main-green);
+    text-align: center;
+    margin: 1.5rem 0 1rem 0;
+}
+
+/* ======================================== */
+/* ===== КАРТОЧКИ НА ГЛАВНОЙ СТРАНИЦЕ (квадратные 180x180) ===== */
+/* ======================================== */
+
+.row {
+    --bs-gutter-x: 1.5rem;      /* отступы между колонками Bootstrap */
+    justify-content: center;
+}
+
+/* Центрирование колонок */
+.col-lg-3, .col-md-4, .col-6 {
+    display: flex;
+    justify-content: center;
+}
+
+/* Карточка растения 180x180 */
+.plant-card {
+    width: 180px;
+    height: 180px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;  /* запрещаем сжиматься */
+}
+
+.plant-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(116, 163, 34, 0.15);
+}
+
+/* Контейнер для изображения */
+.plant-img-container {
+    width: 180px;
+    height: 130px;
+    overflow: hidden;
+}
+
+/* Для центрирования картинки (если нужно) */
+.plant-img-container.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+}
+
+.plant-img-center {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Обычное изображение (заполняет весь контейнер) */
+.plant-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.plant-card:hover .plant-img {
+    transform: scale(1.05);
+}
+
+/* Тело карточки (текст) */
+.card-body {
+    width: 180px;
+    height: 50px;
+    padding: 0.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+/* Название растения */
+.plant-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--main-green);
+    margin: 0;
+}
+
+
+/* ======================================== */
+/* ===== СТИЛИ ДЛЯ КАТАЛОГА (catalog.html) ===== */
+/* ======================================== */
+
+/* Фиксированные размеры для карточек в каталоге */
+.product-card {
+    width: 350px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+
+/* Квадратная кнопка "В корзину" для каталога */
+.btn-square {
+    background-color: #74A322;
+    color: white;
+    width: 140px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+    border-radius: 4px; /* небольшая скругление, но почти квадратная */
+    margin-left: auto;
+    margin-right: auto;
+}   
+        
+.btn-square:hover {
+    background-color: #5f8320;
+    color: white;
+}
+
+/* Альтернативный размер изображения (переопределение) */
+.product-image {
+    width: 200px;     /* ширина */
+    height: 250px;    /* высота */
+    object-fit: cover;
+}
+
+/* ======================================== */
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ ЗАКАЗА (form.html) ===== */
+/* ===== ВСЁ НА ОДНОМ ЭКРАНЕ БЕЗ ПРОКРУТКИ ===== */
+/* ======================================== */
+
+/* Отключаем прокрутку всей страницы */
+body {
+    overflow: hidden; /* отключает прокрутку всей страницы */
+    height: 100vh;
+}
+
+/* Высота main = весь экран минус шапка и подвал */
+main {
+    height: calc(100vh - 130px); /* высота минус шапка и подвал */
+    overflow-y: auto; /* прокрутка только внутри main если нужно */
+    padding: 10px 0;
+}
+
+/* Блоки формы (белые карточки) */
+.form-section {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Заголовки внутри блоков формы */
+.form-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem !important;
+}
+
+/* Таблица корзины */
+.table-cart {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+/* Заголовки таблицы (зеленые) */
+.table-cart th {
+    background-color: var(--main-green);
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+}
+
+/* Ячейки таблицы */
+.table-cart td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Строка с итоговой суммой */
+.total-row {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--main-green);
+}
+
+/* Подписи к полям формы */
+.form-label {
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+}
+
+/* Поля ввода */
+.form-control, .form-select {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+}
+
+/* Текст радио-кнопок */
+.form-check-label {
+    font-size: 0.9rem;
+}
+
+/* Кнопка оформления заказа */
+.btn-lg {
+    padding: 0.5rem !important;
+    font-size: 1rem;
+}
+
+/* Уменьшенная шапка для страницы заказа */
+.navbar-custom {
+    padding: 0.3rem 0 !important;
+}
+
+/* Подвал для страницы заказа */
+footer {
+    background-color: var(--main-green);
+    color: white;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    height: 40px;
+}
+
+/* Контейнер подвала */
+footer .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+/* Колонки в подвале */
+footer .col-md-4 {
+    padding: 0;
+}
+
+/* ======================================== */
+/* ===== СТИЛИ ДЛЯ КАРТОЧКИ ТОВАРА (product.html) ===== */
+/* ======================================== */
+
+/* Основной контент */
+main {
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    padding: 0.5rem 0;
+}
+
+/* Зеленый текст (для цен) */
+.text-green {
+    color: var(--main-green);
+}
+
+/* Зеленый фон */
+.bg-green {
+    background-color: var(--main-green);
+}
+
+/* Зеленая кнопка */
+.btn-green {
+    background-color: var(--main-green);
+    color: white;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.btn-green:hover {
+    background-color: #5f8320;
+    color: white;
+}
+
+/* Увеличенные размеры для страницы товара */
+.main-title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.product-name {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+}
+
+.product-price {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Детали товара (характеристики) */
+.product-details p {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Заголовок "Доставка" */
+.delivery-title {
+    font-size: 1.3rem;
+    margin: 1rem 0 0.3rem 0;
+}
+
+/* Пункты списка доставки */
+.delivery-list li {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+/* Бейджи (Горшок, 22°C, 12CM) */
+.badge-item {
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+}
+
+/* ===== ФОТО В КАРТОЧКЕ ТОВАРА ===== */
+.produc1t-image-container {
+    width: 500px;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+        
+.produc1t-image {
+    width: 500px;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 8px;
+}
