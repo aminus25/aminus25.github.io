@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зеленый дом - Карточка товара</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Твой CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" href="favicon.png" type="images/png">
+
+     <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+        
+</head>
+<body class="d-flex flex-column">
+
+<!-- ===== ШАПКА ===== -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+        <!-- Логотип на белом фоне -->
+        <div class="logo-container">
+            <img src="images/logo-house.png" alt="Зеленый дом" height="35">
+            <span class="brand-text">Зеленый дом</span>
+        </div>
+        
+        <!-- Кнопка для мобильного меню -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Меню навигации -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-custom" href="index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-custom" href="catalog.html">Каталог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-custom" href="form.html">Заказ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-custom active" href="product.html">Товар</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+<main>
+    <main class="mt-4"> 
+
+
+
+<!-- ===== ТОВАР ===== -->
+<div class="container">
+    <div class="row">
+        <!-- Левая колонка - фото 712x758 -->
+        <div class="col-md-6">
+            <div class="produc1t-image-container">
+                <img src="images/monstera.jpg" class="produc1t-image" alt="Монстера Адансони">
+            </div>
+        </div>
+        
+        <!-- Правая колонка - информация -->
+        <!-- Правая колонка - информация -->
+<div class="col-md-6">
+    <h2 class="fw-bold product-name">Монстера Адансони</h2>
+    <p class="fw-bold text-green product-price">1 290 ₽</p>
+    
+    <!-- Характеристики -->
+    <div class="product-details">
+        <p><span class="fw-medium">Диаметр горшка:</span> <span class="product-diametr">12 см</span></p>
+        <p><span class="fw-medium">Высота от пола:</span> <span class="product-height">30 см</span></p>
+        <p><span class="fw-medium">Куда ставим:</span> <span class="product-placement">гостиная, спальня, кабинет, кухня</span></p>
+        <p><span class="fw-medium">Освещенность:</span> <span class="product-light">рассеянный свет, полутень</span></p>
+        <p><span class="fw-medium">Сложность ухода:</span> <span class="product-care">новичок, любитель</span></p>
+        <p><span class="fw-medium">В наличии:</span> <span class="product-stock">4</span> шт.</p>
+    </div>
+    
+    <!-- Доставка -->
+    <h5 class="fw-bold delivery-title">Доставка:</h5>
+    <ul class="list-unstyled delivery-list">
+        <!-- Сюда будут подставляться данные из JS -->
+    </ul>
+    
+    <!-- Бейджи -->
+    <div class="d-flex gap-3 my-3">
+        <span class="badge bg-light text-dark badge-item"><i class="bi bi-flower1 me-1 text-green"></i>Горшок</span>
+        <span class="badge bg-light text-dark badge-item"><i class="bi bi-thermometer-half me-1 text-green"></i>22°C</span>
+        <span class="badge bg-light text-dark badge-item"><i class="bi bi-rulers me-1 text-green"></i>12CM</span>
+    </div>
+    
+    <!-- Кнопка -->
+    <button class="btn btn-green mt-2">В корзину</button>
+</div>
+
+    </div>
+</div>
+
+</main>
+
+<!-- ===== ПОДВАЛ ===== -->
+<!-- ===== ПОДВАЛ (компактный) ===== -->
+<footer>
+    <div class="container">
+        <span><i class="bi bi-clock me-1"></i>Обработка заказов: 9:00-20:00</span>
+        <span><i class="bi bi-envelope me-1"></i>greenhome@mail.ru</span>
+        <span><i class="bi bi-telephone me-1"></i>+7 (929) 796-06-97</span>
+    </div>
+</footer>
+>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Твой JS -->
+<script src="js/script.js"></script> 
+</body>
+</html>

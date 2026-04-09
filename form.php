@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зеленый дом - Оформление заказа</title>
+    
+    <!-- ===== ПОДКЛЮЧЕНИЕ СТИЛЕЙ ===== -->
+    <!-- Bootstrap CSS - основной фреймворк для сетки и компонентов -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons - библиотека иконок для социальных сетей и элементов -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Шрифт Alegreya Sans - основной шрифт всего сайта -->
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Наши собственные стили - переопределяют Bootstrap при необходимости -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon - иконка сайта на вкладке браузера -->
+    <link rel="icon" href="favicon.png" type="images/png">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+        
+</head>
+<!-- body с flex-контейнером для правильного расположения шапки, контента и подвала -->
+<body class="d-flex flex-column">
+
+<!-- ===== ШАПКА САЙТА (HEADER) ===== -->
+<!-- компактная версия шапки с уменьшенными отступами -->
+<nav class="navbar navbar-expand-lg navbar-custom" style="padding: 0.2rem 0;">
+    <div class="container">
+        <!-- Логотип на белом фоне - отдельный блок для контраста -->
+        <div class="logo-container">
+            <img src="images/logo-house.png" alt="Зеленый дом" height="35">
+            <span class="brand-text">Зеленый дом</span>
+        </div>
+        
+        <!-- Кнопка-бургер для мобильного меню (появляется на маленьких экранах) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Меню навигации - скрывается на мобильных и появляется при нажатии на бургер -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-custom" href="index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-custom" href="catalog.html">Каталог</a>
+                </li>
+                <li class="nav-item">
+                    <!-- active - выделяет текущую страницу (подчеркивание снизу) -->
+                    <a class="nav-link nav-link-custom active" href="form.html">Заказ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-custom" href="product.html">Товар</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- ===== КОНЕЦ ШАПКИ ===== -->
+
+<!-- ===== ОСНОВНОЙ КОНТЕНТ СТРАНИЦЫ ===== -->
+<main>
+
+<!-- ===== ЗАГОЛОВОК СТРАНИЦЫ ===== -->
+<div class="container mt-2">
+    <h1 class="fw-bold text-dark" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Оформить заказ</h1>
+</div>
+
+<!-- ===== ФОРМА ЗАКАЗА ===== -->
+<div class="container">
+    <!-- ОБЩАЯ ФОРМА, которая включает и поля, и кнопку -->
+    <form id="orderForm">
+        <div class="row g-2">
+            
+            <!-- ===== ЛЕВАЯ КОЛОНКА - ПОЛЯ ===== -->
+            <div class="col-lg-7">
+                
+                <!-- Блок с данными получателя -->
+                <div class="form-section">
+                    <h3 class="mb-2">Данные получателя</h3>
+                    
+                    <div class="row g-2">
+                        <!-- Поле Имя (обязательное) -->
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Имя</label>
+                            <input type="text" class="form-control" id="name" placeholder="Имя" required>
+                        </div>
+                        <!-- Поле Фамилия -->
+                        <div class="col-md-6">
+                            <label for="surname" class="form-label">Фамилия</label>
+                            <input type="text" class="form-control" id="surname" placeholder="Фамилия">
+                        </div>
+                        <!-- Поле Email (обязательное) -->
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="email@mail.ru" required>
+                        </div>
+                        <!-- Поле Адрес (обязательное) -->
+                        <div class="col-12">
+                            <label for="address" class="form-label">Адрес</label>
+                            <input type="text" class="form-control" id="address" placeholder="Улица, дом" required>
+                        </div>
+                        <!-- Страна -->
+                        <div class="col-md-6">
+                            <label for="country" class="form-label">Страна</label>
+                            <select class="form-select" id="country">
+                                <option>Россия</option>
+                                <option>Беларусь</option>
+                                <option>Казахстан</option>
+                            </select>
+                        </div>
+                        <!-- Город -->
+                        <div class="col-md-6">
+                            <label for="city" class="form-label">Город</label>
+                            <input type="text" class="form-control" id="city" placeholder="Город">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Блок выбора способа доставки -->
+                <div class="form-section">
+                    <h3 class="mb-2">Доставка</h3>
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="delivery" id="russia" value="Почта России" checked>
+                        <label class="form-check-label" for="russia">РФ Почта России</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="delivery" id="courier" value="Курьер">
+                        <label class="form-check-label" for="courier">Курьер</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="delivery" id="pickup" value="Самовывоз">
+                        <label class="form-check-label" for="pickup">Самовывоз</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ===== ПРАВАЯ КОЛОНКА - КОРЗИНА И ОПЛАТА ===== -->
+            <div class="col-lg-5">
+                
+                <!-- Блок корзины -->
+                <div class="form-section">
+                    <h3 class="mb-2">Корзина</h3>
+                    
+                    <table class="table table-cart table-sm">
+                        <thead>
+                            <tr>
+                                <th>Товар</th>
+                                <th>Кол-во</th>
+                                <th>Цена</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Монстера</td>
+                                <td>1</td>
+                                <td>1200 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>Кактус</td>
+                                <td>2</td>
+                                <td>780 ₽</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="2" class="text-end">ИТОГО:</td>
+                                <td><strong>1980 ₽</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Блок оплаты -->
+                <div class="form-section">
+                    <h3 class="mb-2">Оплата</h3>
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment" id="credit" value="Кредитная карта" checked>
+                        <label class="form-check-label" for="credit">Кредитная карта</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="payment" id="debit" value="Дебетовая карта">
+                        <label class="form-check-label" for="debit">Дебетовая карта</label>
+                    </div>
+                    
+                    <div class="row g-2">
+                        <div class="col-12">
+                            <label for="cardName" class="form-label">Имя на карте</label>
+                            <input type="text" class="form-control" id="cardName" placeholder="IVAN PETROV">
+                        </div>
+                        <div class="col-12">
+                            <label for="cardNumber" class="form-label">Номер карты</label>
+                            <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="col-6">
+                            <label for="cardExpiry" class="form-label">Срок</label>
+                            <input type="text" class="form-control" id="cardExpiry" placeholder="ММ/ГГ">
+                        </div>
+                        <div class="col-6">
+                            <label for="cardCvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cardCvv" placeholder="123">
+                        </div>
+                    </div>
+                    
+                    <!-- КНОПКА ТЕПЕРЬ ВНУТРИ ФОРМЫ -->
+                    <button type="submit" class="btn w-100 mt-2" style="background-color: #74A322; color: white;">
+                        Оформить заказ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- ===== КОНЕЦ ФОРМЫ ЗАКАЗА ===== -->
+
+<!-- Модальное окно для сообщений -->
+<div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resultModalLabel">Результат отправки</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalMessage">
+                <!-- Сюда будет вставляться текст -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+<!-- ===== КОНЕЦ ОСНОВНОГО КОНТЕНТА ===== -->
+
+<!-- ===== ПОДВАЛ САЙТА (FOOTER) ===== -->
+<footer>
+    <div class="container">
+        <!-- Часы работы с иконкой -->
+        <span><i class="bi bi-clock me-1"></i>Обработка заказов: 9:00-20:00</span>
+        <!-- Email с иконкой -->
+        <span><i class="bi bi-envelope me-1"></i>greenhome@mail.ru</span>
+        <!-- Телефон с иконкой -->
+        <span><i class="bi bi-telephone me-1"></i>+7 (929) 796-06-97</span>
+    </div>
+</footer>
+<!-- ===== КОНЕЦ ПОДВАЛА ===== -->
+
+<!-- Bootstrap JS - необходим для работы модальных окон, вкладок и других компонентов -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Подключение твоего JS-скрипта -->
+<script src="js/script.js"></script>
+</body>
+</html>
