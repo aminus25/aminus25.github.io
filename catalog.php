@@ -1,3 +1,7 @@
+<?php
+require_once 'config.php';
+$products = getProducts($conn);
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -5,216 +9,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Зеленый дом - Каталог</title>
     
-    <!-- ===== ПОДКЛЮЧЕНИЕ СТИЛЕЙ ===== -->
-    <!-- Bootstrap CSS - основной фреймворк -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons - иконки для соцсетей и элементов -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <!-- Шрифт Alegreya Sans - основной шрифт сайта -->
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-
-    <!-- Наши собственные стили (переопределяют Bootstrap) -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Favicon - иконка сайта на вкладке браузера -->
     <link rel="icon" href="favicon.png" type="images/png">
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    
+    <style>
+        .btn-cart {
+            background-color: #74A322;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+        .btn-cart:hover {
+            background-color: #5a821a;
+            color: white;
+        }
+        .btn-square-small {
+            background-color: transparent;
+            color: #74A322;
+            border: 1px solid #74A322;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.3s;
+            font-size: 14px;
+            display: inline-block;
+        }
+        .btn-square-small:hover {
+            background-color: #74A322;
+            color: white;
+        }
+        .product-card {
+            width: 280px;
+            transition: transform 0.3s;
+        }
+        .product-image {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+        }
+    </style>
 </head>
-<!-- body с flex-контейнером для прижатого подвала -->
 <body class="d-flex flex-column min-vh-100">
 
-<!-- ===== ШАПКА САЙТА (HEADER) ===== -->
-<!-- Навбар с зеленым фоном и логотипом на белом фоне -->
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
-        <!-- Логотип на белом фоне (отдельный блок) -->
         <div class="logo-container">
             <img src="images/logo-house.png" alt="Зеленый дом" height="35">
             <span class="brand-text">Зеленый дом</span>
         </div>
         
-        <!-- Кнопка для мобильного меню (бургер) -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         
-        <!-- Меню навигации (ссылки на страницы) -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-custom" href="index.html">Главная</a>
-                </li>
-                <li class="nav-item">
-                    <!-- active - показывает текущую страницу -->
-                    <a class="nav-link nav-link-custom active" href="catalog.html">Каталог</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-custom" href="form.html">Заказ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-custom" href="product.html">Товар</a>
-                </li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom active" href="catalog.php">Каталог</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="form.php">Заказ</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="product.php">Товар</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<!-- ===== КОНЕЦ ШАПКИ ===== -->
 
-<!-- ===== ОСНОВНОЙ КОНТЕНТ СТРАНИЦЫ ===== -->
 <main class="flex-grow-1">
 
-<!-- ===== ЗАГОЛОВОК СТРАНИЦЫ ===== -->
 <div class="container mt-5">
     <h1 class="fw-bold text-dark" style="font-size: 2.2rem;">Наш Каталог</h1>
 </div>
 
-<!-- ===== КАРТОЧКИ ТОВАРОВ ===== -->
-<!-- ===== КАРТОЧКИ ТОВАРОВ ===== -->
 <div class="container mt-4">
-    <!-- Ряд с карточками -->
     <div class="row justify-content-center" style="gap: 53px;">
         
-        <!-- ===== КАРТОЧКА 1: Монстера (с data-атрибутами) ===== -->
+        <?php foreach ($products as $product): ?>
         <div class="col-auto">
-            <div class="card border-0 shadow-sm product-card" 
-                 data-product-id="1"
-                 data-product-name="Монстера Адансони"
-                 data-product-price="1200"
-                 data-product-image="monstera.jpg"
-                 data-product-diametr="12 см"
-                 data-product-height="25 см"
-                 data-product-light="рассеянный свет, полутень"
-                 data-product-care="новичок, любитель"
-                 data-product-stock="4"
-                 data-product-placement="гостиная, спальня, кабинет, кухня">
+            <div class="card border-0 shadow-sm product-card">
                 
                 <div class="d-flex justify-content-center pt-4">
-                    <img src="images/monstera.jpg" class="product-image" alt="Монстера">
+                    <img src="images/<?= $product['image'] ?>" class="product-image" alt="<?= htmlspecialchars($product['name']) ?>">
                 </div>
                 <div class="card-body d-flex flex-column text-center">
-                    <h3 class="card-title h5 fw-normal">Монстера Адансони</h3>
-                    <p class="card-text fs-3 fw-bold mb-2" style="color: #74A322;">1 200 ₽</p>
+                    <h3 class="card-title h5 fw-normal"><?= htmlspecialchars($product['name']) ?></h3>
+                    <p class="card-text fs-3 fw-bold mb-2" style="color: #74A322;"><?= number_format($product['price'], 0, '', ' ') ?> ₽</p>
                     <p class="card-text text-secondary">
-                        Диаметр горшка: 12 см<br>
-                        Высота от пола: 25 см
+                        Диаметр горшка: <?= $product['diametr'] ?><br>
+                        Высота от пола: <?= $product['height'] ?>
                     </p>
-                    <a href="#" class="btn-square" data-product-id="1">В корзину</a>
+                    <div class="d-flex gap-2 justify-content-center mt-2">
+                        <a href="product.php?id=<?= $product['id'] ?>" class="btn-square-small">Подробнее</a>
+                        <button class="btn-cart" onclick="addToCart(<?= $product['id'] ?>, '<?= htmlspecialchars($product['name']) ?>', <?= $product['price'] ?>)">В корзину</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <?php endforeach; ?>
         
-        <!-- ===== КАРТОЧКА 2: Кактус (с data-атрибутами) ===== -->
-        <div class="col-auto">
-            <div class="card border-0 shadow-sm product-card" 
-                 data-product-id="2"
-                 data-product-name="Кактус Эхинопсис"
-                 data-product-price="390"
-                 data-product-image="cactus.jpg"
-                 data-product-diametr="6 см"
-                 data-product-height="12 см"
-                 data-product-light="яркий солнечный свет"
-                 data-product-care="новичок (очень неприхотлив)"
-                 data-product-stock="15"
-                 data-product-placement="подоконник, солнечная сторона">
-                
-                <div class="d-flex justify-content-center pt-4">
-                    <img src="images/cactus.jpg" class="product-image" alt="Кактус">
-                </div>
-                <div class="card-body d-flex flex-column text-center">
-                    <h3 class="card-title h5 fw-normal">Кактус Эхинопсис</h3>
-                    <p class="card-text fs-3 fw-bold mb-2" style="color: #74A322;">390 ₽</p>
-                    <p class="card-text text-secondary">
-                        Диаметр горшка: 6 см<br>
-                        Высота от пола: 12 см
-                    </p>
-                    <a href="#" class="btn-square" data-product-id="2">В корзину</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- ===== КАРТОЧКА 3: Орхидея (с data-атрибутами) ===== -->
-        <div class="col-auto">
-            <div class="card border-0 shadow-sm product-card" 
-                 data-product-id="3"
-                 data-product-name="Орхидея Фаленопсис"
-                 data-product-price="1790"
-                 data-product-image="orchidea.webp"
-                 data-product-diametr="12 см"
-                 data-product-height="40 см"
-                 data-product-light="рассеянный свет, без прямых солнечных лучей"
-                 data-product-care="любитель (требует особого ухода)"
-                 data-product-stock="3"
-                 data-product-placement="гостиная, ванная комната с окном">
-                
-                <div class="d-flex justify-content-center pt-4">
-                    <img src="images/orchidea.webp" class="product-image" alt="Орхидея">
-                </div>
-                <div class="card-body d-flex flex-column text-center">
-                    <h3 class="card-title h5 fw-normal">Орхидея Фаленопсис</h3>
-                    <p class="card-text fs-3 fw-bold mb-2" style="color: #74A322;">1 790 ₽</p>
-                    <p class="card-text text-secondary">
-                        Диаметр горшка: 12 см<br>
-                        Высота от пола: 40 см
-                    </p>
-                    <a href="#" class="btn-square" data-product-id="3">В корзину</a>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
-<!-- ===== КОНЕЦ КАРТОЧЕК ТОВАРОВ ===== -->
-
-<!-- ===== ПАГИНАЦИЯ (номера страниц) ===== -->
-<div class="container mt-5">
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            <!-- Кнопка "предыдущая страница" -->
-            <li class="page-item"><a class="page-link text-success" href="#">«</a></li>
-            <!-- Номера страниц -->
-            <li class="page-item"><a class="page-link text-success" href="#">1</a></li>
-            <li class="page-item"><a class="page-link text-success" href="#">2</a></li>
-            <li class="page-item"><a class="page-link text-success" href="#">3</a></li>
-            <li class="page-item"><a class="page-link text-success" href="#">4</a></li>
-            <li class="page-item"><a class="page-link text-success" href="#">5</a></li>
-            <!-- Кнопка "следующая страница" -->
-            <li class="page-item"><a class="page-link text-success" href="#">»</a></li>
-        </ul>
-    </nav>
-</div>
-<!-- ===== КОНЕЦ ПАГИНАЦИИ ===== -->
 
 </main>
-<!-- ===== КОНЕЦ ОСНОВНОГО КОНТЕНТА ===== -->
 
-<!-- ===== ПОДВАЛ САЙТА (FOOTER) ===== -->
 <footer>
     <div class="container">
-        <!-- Часы работы с иконкой -->
         <span><i class="bi bi-clock me-1"></i>Обработка заказов: 9:00-20:00</span>
-        <!-- Email с иконкой -->
         <span><i class="bi bi-envelope me-1"></i>greenhome@mail.ru</span>
-        <!-- Телефон с иконкой -->
         <span><i class="bi bi-telephone me-1"></i>+7 (929) 796-06-97</span>
     </div>
 </footer>
-<!-- ===== КОНЕЦ ПОДВАЛА ===== -->
 
-<!-- Bootstrap JS - для работы меню и других компонентов -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Твой JS -->
-<script src="js/script.js"></script> 
 
+<script>
+// Функция добавления товара в корзину
+function addToCart(id, name, price) {
+    console.log("Добавляем: " + name);
+    
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    
+    let existing = cart.find(item => item.id === id);
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({ id: id, name: name, price: price, quantity: 1 });
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert('✅ Товар "' + name + '" добавлен в корзину!');
+}
+
+// Проверка, что скрипт работает
+console.log("Скрипт каталога загружен");
+</script>
 
 </body>
 </html>
